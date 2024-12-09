@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const ejs = require('ejs');
+
 
 const app = express();
 const port = 3000;
@@ -20,7 +20,7 @@ app.post('/weather', async (req, res) => {
   const apiKey = '6f8c1e416d55bf15c53508313ad3e9d3'; 
 
   try {
-    const response = await axios.get(` api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&units=imperial&appid=${apiKey}`);
+    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${zipCode}&APPID=${apiKey}`);
     const weatherData = response.data;
 
    
